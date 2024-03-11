@@ -1,3 +1,13 @@
-.bg{
-    background-color: bisque;
-}
+.datatable-orange{
+    color:#fff;
+    background-color:#e06000;
+  }
+  .datatable-orange:hover{
+    color:#000;
+    background-color:#e06000;
+  }
+  .myTable{
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+  }
+  

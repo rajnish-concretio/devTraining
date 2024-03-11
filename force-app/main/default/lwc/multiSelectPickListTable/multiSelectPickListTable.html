@@ -13,6 +13,7 @@
     </div>
     <div if:true={selectedSObject}>
         <lightning-dual-listbox
+            class="myFont"
             name="fields"
             label="Select Fields"
             source-label="Available Fields"
@@ -38,6 +39,7 @@
             </div>
         </div>
         <lightning-datatable
+            class="myTable"
             hide-checkbox-column="true"
             key-field="Id"
             data={pagedData}
