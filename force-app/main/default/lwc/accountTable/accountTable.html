@@ -1,0 +1,51 @@
+<!-- accountTable.html -->
+<template>
+    <div>
+        <lightning-combobox
+            class="bg"
+            name="sobjects"
+            label="Select SObject"
+            value={selectedSObject}
+            placeholder="Select SObject"
+            options={sobjectOptions}
+            onchange={handleSObjectSelection}>
+        </lightning-combobox>
+    </div>
+    <div if:true={selectedSObject}>
+        <lightning-dual-listbox
+            name="fields"
+            label="Select Fields"
+            source-label="Available Fields"
+            selected-label="Selected Fields"
+            options={fieldOptions}
+            onchange={handleFieldSelection}>
+        </lightning-dual-listbox>
+        <button class="slds-button slds-button_brand slds-m-top_xx-small slds-align_absolute-center" onclick={handleSubmit}>Submit</button>
+    </div>
+
+    <lightning-card if:true={accountData.length}>
+        <div class="slds-m-around_medium">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_4-of-12">
+                    <lightning-input label="Search" onchange={handleSearchChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_6-of-12">
+                    <lightning-input label="Enter Number Of Records" class="slds-m-left_large" type="number" value={pageSize} onchange={handlePageSizeChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-p-top_medium">
+                    <lightning-button label="Set" onclick={setPageSize} variant="brand" class="slds-m-left_large slds-p-around_medium"></lightning-button>
+                </div>
+            </div>
+        </div>
+        <lightning-datatable
+            hide-checkbox-column="true"
+            key-field="Id"
+            data={pagedData}
+            columns={columns}>
+        </lightning-datatable>
+        <lightning-button-group class="slds-align_absolute-center slds-m-top_large">
+            <lightning-button label="Previous" disabled={isPreviousDisabled} onclick={previousPage}></lightning-button>
+            <lightning-button label="Next" disabled={isNextDisabled} onclick={nextPage}></lightning-button>
+        </lightning-button-group>
+    </lightning-card>
+</template>

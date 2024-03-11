@@ -1,0 +1,47 @@
+<!-- Pagination.html -->
+<template>
+    <lightning-card title="Pagination Example">
+        <div class="slds-m-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={records}
+                columns={columns}
+                sorted-by={sortedBy}
+                sorted-direction={sortedDirection}
+                onsort={handleSort}
+            ></lightning-datatable>
+            <div class="slds-grid slds-grid_align-spread slds-p-top_small">
+                <div class="slds-col slds-align-middle">
+                    <lightning-button-group>
+                        <lightning-button
+                            label="First"
+                            onclick={handleFirst}
+                            disabled={disablePrevious}
+                        ></lightning-button>
+                        <lightning-button
+                            label="Previous"
+                            onclick={handlePrevious}
+                            disabled={disablePrevious}
+                        ></lightning-button>
+                        <lightning-button
+                            label="Next"
+                            onclick={handleNext}
+                            disabled={disableNext}
+                        ></lightning-button>
+                        <lightning-button
+                            label="Last"
+                            onclick={handleLast}
+                            disabled={disableNext}
+                        ></lightning-button>
+                    </lightning-button-group>
+                </div>
+                <div class="slds-col slds-align-middle">
+                    <p>{pageLabel}</p>
+                </div>
+            </div>
+            <template if:true={error}>
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

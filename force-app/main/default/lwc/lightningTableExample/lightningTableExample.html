@@ -1,0 +1,29 @@
+<template>
+
+
+<lightning-card icon-name="standard:account" variant="base">
+    <lightning-input 
+    type="text"
+    label="Enter Your New Title here"
+    onkeyup={changeHandler}
+    ></lightning-input>
+    <div>
+        My Name is {name} and title is {title}
+    </div>
+
+    <lightning-input type="text" label="Enter Your City here" onkeyup={changeCityHandler}></lightning-input>
+    <div>
+         {address.City} is My City
+    </div>
+</lightning-card>
+
+<lightning-card icon-name="standard:account" variant="base">
+    <div>
+         First user Name Is {getUser}
+    </div>
+
+    <div>
+        Addition of {num1} and {num2} is {getAddition}
+   </div>
+</lightning-card>
+</template>
